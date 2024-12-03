@@ -1,0 +1,217 @@
+Fundamentos QA:
+
+SDLC - Ciclo de Vida de Desenvolvimento de Software
+
+Passos:
+
+1 - Planejamento: Tentar entender a fundo o sistema que será implantado;
+
+2 - Análise: Especificação dos Requisitos do Sistema. Por exemplo: Se vai precisar de muito banco de dados, ou muito processamento de tráfego, etc.. Analisar esses requisitos para ajudar com a elaboração dos casos de teste;
+
+3 - Design: Definições do frontend, arquiteturas de sistema, tipos de arquitetura de banco de dados, entre outros. Nesta fase, o QA pode tirar mais dúvidas com a equipe, verificar com a equipe o comportamento esperado para o software, para basear melhor os casos de teste;
+
+4 - Implementação: Codificação e implementação do software. O QA pode iniciar os casos de teste, automações, testes de carga, testes de automação, testes de integração, etc.;
+
+5 - Teste e Integração: Parte onde o QA se aprofunda nos testes, de modo que essa implementação funcione corretamente ao ser integrada ao como um todo;
+
+6 - Manutenção: Realização de suporte da aplicação. O QA pode dar suporte à equipe, pois espera-se que conheça as especificações do sistema profundamente. Ele, ainda, pode gerar testes periódicos, de preferência, automatizados.
+
+---------------------------------------------
+
+Erros, Defeitos e Falhas
+
+Erros: Geralmente, ligados ao ser humano e com uma causa externa (cansaço, insatisfação, pressão, etc.). Esses erros, usualmente, geram Defeitos;
+
+Defeitos: Podem ser encontrados em diversos lugares: na Documentação, nas Especificações de Requisitos, em Scripts de Testes, no código-fonte ou, até mesmo, em arquivos de compilação;
+
+Falhas: Está ligada a defeitos e a efeitos externos, como causas ambientais.
+
+---------------------------------------------
+
+Tipos de Testes
+
+Todos os testes devem ser efetuados à partir do escopo do projeto. Devemos saber como o sistema deve se comportar em diversos cenários.
+
+Teste Funcional:
+	- Avaliar as funções que um componente ou sistema deve executar;
+	- As funções são as diretrizes do que o objeto de teste deve fazer.
+
+Exemplos de Testes Funcionais em um Formulário:
+	- Cenário Positivo: O que acontece se o cadastro é bem sucedido?;
+	- Cenário Negativo: O que acontece quando dá algum erro de cadastro e quais são os possíveis erros;
+	- Teste de tempo de resposta do formulário;
+	- Teste de validação dos campos.
+
+Teste Não Funcional:
+	- Avalia atributos que não sejam características funcionais de um componente ou sistema;
+	- Avalia a performance, estabilidade, segurança, entre outros diversos Casos de Testes do sistema. Avalia o quão bem o sistema está se comportando. Verifica as características não funcionais do sistema:
+
+	- Portabilidade;
+	- Eficiência - o que o sistema deve ter para ser eficiente?;
+	- Usabilidade - Design simples, de fácil acesso;
+	- Performance - Verifica a escalabilidade;
+	- Segurança - Vazamento ou exploração de dados;
+	- Manutenibilidade - Verificar se o software possui LOGs suficientes, se esses logs estão sendo corretamente gravados, etc.;
+
+Podemos integrar esses dois tipos de testes, para uma maior abrangência.
+
+Testes de Caixa-preta: Esses testes são baseados em especificações, documentações. Não sabemos o que está acontecendo "dentro" do software.
+
+Testes de Caixa-branca: Testes com acesso ao backend do software.
+
+Testes de Confirmação: Tem como objetivo confirmar se um defeito foi corrigido com sucesso (popularmente conhecido como "reteste"). São feitos testes de confirmação em casos de testes que já foram executados e que falharam por causa do defeito. Ainda, podem-se adicionar novos testes para cobrir as alterações necessárias para a correção do defeito.
+
+Testes de Regressão: Utilizado para confirmar se alguma alteração causou algum erro no sistema. Devem ser utilizados com cuidado, pois são demorados. O importante é focar esses tipos de testes nas áreas mais importantes do sistema.
+
+Testes de Manutenção: Avalia o sucesso da implantação das alterações e verificações de possíveis regressões em partes do objeto que não foram afetadas
+
+Testes Estáticos: Testes que não precisam ser feitos com o software em funcionamento: Documentos de Requisitos, Códigos-fonte, Planos e Casos de Testes, Documentação e Contratos (moldes).
+	- Sonarqube - Software de análise estática que faz a leitura do seu código e analisa a qualidade à partir de parâmetros estabelecidos pelo QA.
+
+Testes Dinâmicos: Deve ser feito com o software em funcionamento. Por exemplo, pode ser feito para comparar se o comportamento do sistema está de acordo com as regras de negócio.
+
+---------------------------------------------
+
+Técnicas de Testes:
+
+Caixa-Preta:
+	- Particionamento de Equivalência: 
+		> Divide dados em partições.
+		> Por exemplo, um sistema que tem como objetivo verificar a idade de pessoas para entrar em uma festa e evitar que menores de idade entrem, terá uma partição inválida e uma partição válida. Então, há dois testes a serem feitos: um para verificar se funciona com a idade menor que 18 e outra que funcione com idades maiores que 18 anos.
+
+	- Análise de Valor de Limite:
+		> Baseado nos valores de limite de partições;
+		> Testar os limites mínimos e máximos;
+		> Por exemplo, um campo de senha que deva receber de 6 a 20 caracteres, terá as seguintes partições: uma Partição Inválida para valores com 0 a 4 caracteres; uma Partição Inválida para valores com 6 ou 21 caracteres; e uma Partição Válida para valores com 6 a 20 caracteres.
+
+	- Teste de Tabela de Decisão:
+		> Registra as lógicas mais complexas;
+		> Organizar Cenários Complexos;
+		> Abordagem Sistemática para as decisões.
+
+	- Teste de Transição de Estado: Verifica o comportamento do sistema.
+
+---------------------------------------------
+
+Níveis de Testes - Pirâmide de Testes:
+
+Topo: Testes de Sistema - Comportamento e recursos gerais do sistema:
+	- Testes de Usabilidade do sistema;
+	- Técnicas de Caixa-Preta (valor limite, tabela de decisão);
+	- Testes de Aceite;
+	- Testes de Regressão;
+	- Testes que levam mais tempo, com maior custo.
+
+Meio: Testes de Integração - Integração dos componentes do sistema;
+	- Testes de Performance;
+	- Testes de Segurança;
+	- Testes Estáticos;
+	- Testes Dinâmicos.
+
+Base: Testes de Unidade - Componentes isolados:
+	- Testes unitários Estáticos.
+
+---------------------------------------------
+
+Estratégia de Testes:
+	- Organização de níveis e tipos de testes;
+	- Acordo com o tipo ou organização;
+	- Melhoria de análise sobre os objetos de teste.
+
+---------------------------------------------
+
+Metodologias:
+	- Padrões que ajudam a gerenciar ciclos de vida de desenvolvimento de software;
+	- Devemos analisar com cuidado para saber quais os melhores testes a serem feitos;
+	- Framework Scrum - Metodologia Ágil - mais flexível.	
+
+---------------------------------------------
+
+Modelo Cascata: Hierarquia rígida e sequencial de processos
+
+	- Vantagens:
+		> Visão completa do escopo;
+		> Documentação a cada passo.
+
+	- Desvantagens: 
+		> Burocracia;
+		> Pouca participação do cliente;
+		> Falta de flexibilidade: Mudanças "atrapalham" o desenvolvimento do sistema.
+
+---------------------------------------------
+
+Modelo Ágil - Scrum: Entregas divididas em pequenas partes
+
+	- Sprint - Ciclo de desenvolvimento sucessivo (1 a 4 semanas);
+	- Daily - Reuniões diária de feedback;
+	- Maior flexibilidade;
+	- Pequenas entregas - MVP (Minimum Viable Product).
+
+Composto por:
+	- Product Backlog - Geralmente, controlado pelo Product Manager. O PM está mais próximo ao cliente e sabe o que deve ser entregue;
+	- Sprint Planning;
+	- Sprint Backlog;
+	- Scrum Team;
+	- Dailly Scrum;
+	- Increment;
+	- Sprint Review;
+	- Sprint Retrospective.
+
+---------------------------------------------
+
+Modelo Shift Left:
+	- Antecipar as atividades de testes e revisões para o início do processo de desenvolvimento;
+	- Os testes são efetuados desde o início do desenvolvimento do software;
+	- Testa todo o ciclo de vida do sistema, de forma encadeada;
+	- Maior Produtividade;
+	- Maior qualidade de entregas;
+	- Custo Reduzido;
+	- Cobertura maior referente a defeitos.
+
+---------------------------------------------
+
+Casos de Testes:
+	- Diluição das condições de teste;
+	- Podem ser organizados de diversas formas;
+	- Importantes para a organização das estratégias de testes;
+	- Melhor cobertura sobre as regras de negócio.
+
+Exemplo:
+	* CENÁRIO e RESPOSTA.
+	- Usuário acessa o sistema utilizando um tablet Apple: Responsividade nas resoluções 1024x768;
+	- Usuário acessa o sistema utilizando celular de modelo antigo: Sem responsividade - Alertar o usuário sobre o modelo mínimo;
+	- Carga de usuários superior a 10000 por minuto: O sistema deve responder normalmente, com limite de latência de 2ms;
+	- ETC..
+
+---------------------------------------------
+
+Template de Critérios de Aceitação - Gherkin
+
+Exemplo:
+	- DADO que sou um usuário com acesso de vendedor;
+	- E... (se aplicável);
+	- QUANDO eu acessar o sistema por um tablet Apple;
+	- ENTÃO, a responsividade deve ser alterada, para suportar a resolução do tablet;
+	- E... (se aplicável).
+
+---------------------------------------------
+
+Principais Tipos de QA:
+	
+	- Testers:
+		> Normalmente, presente em empresas que desenvolvem softwares no modelo cascata;
+		> Entra para testar, depois que o sistema está pronto.
+
+	- Engenheiro de Qualidade:
+		> Mais envolvido com a Engenharia de Software;
+		> Procura saber como aplicar os testes dentro da arquitetura;
+		> Tentar entender a estrutura do software afim de saber quais testes e como aplicá-los de forma correta.
+		> Sejam testes manuais ou automáticos;
+		> Importante que tenha entendimento das Metodologias Ágeis.
+
+	- SDET - Software Development Engineer in Test:
+		> Engenheiro de Testes;
+		> Desenvolvedor de APIs para testes;
+		> Cria Bibliotecas de Soluções que permitem que outras equipes apliquem essas bibliotecas;
+		> Desenvolve soluções para testes.
+
